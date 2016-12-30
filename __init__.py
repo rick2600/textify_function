@@ -16,14 +16,6 @@ def textify_function(bv, function):
             
     show_plain_text_report("Text Disasm", output)
 
-# From @josh
-def textify_function2(bv, function):
-    output = ''
-    output += bv.get_disassembly(function.start)
-    while bv.get_basic_blocks_at(bv.next_address)[0].function.start == function.start:
-        output += bv.get_next_disassembly() + "\n"
-    show_plain_text_report("Text Disasm", output)
-
 PluginCommand.register_for_function("Textify Function", "", textify_function)
 
 
